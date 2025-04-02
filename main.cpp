@@ -10,10 +10,24 @@ using namespace std;
 
 struct player{
     int x, y; //posicao do personagem
+    int character; //Skin do personagem
     int vida; //vida do personagem
     int forca; //forca do personagem
     int level; //level do personagem
     int exp; //experiencia do personagem
+};
+
+struct monstro{
+    int x, y; //posicao do monstro
+    int vida; //vida do monstro
+    int forca; //forca do monstro
+    int level; //level do monstro
+    int expToPlayer; //experiencia que o monstro da para o player
+};
+
+struct bau{
+    int x, y; //posicao do item
+    string item; //item que o bau tem
 };
 
 int menu(){
@@ -111,6 +125,7 @@ int main()
 
     p1.x = x; //posicao inicial do personagem
     p1.y = y; //posicao inicial do personagem
+    p1.character = 36; //skin do personagem
     p1.vida = 100;
     p1.forca = 20;
     p1.level = 15;
@@ -131,18 +146,18 @@ int main()
                         p1.x=aux1;
                         p1.y=aux2;
                     }
-                    cout<<char(36); //personagem
+                    cout<<char(p1.character); //personagem
                     //auxiliares salvando o lugar do personagem
                     aux1=p1.x; aux2=p1.y;
                 }
 
                 else{
                     switch (m[i][j]){
-                        case 0: cout<<"."; break; //caminho
+                        case 0: cout<<"."; break; //caminho não descoberto
                         case 1: cout<<char(219); break; //parede
 
-                        case 2: cout<<char(2); break; //Passagem
-                        
+                        case 2: cout<<char(2); break; //Porta
+                        //case 3: cout<<":"; break; //Passagem
                         //default: cout<<"-"; //erro
                     } //fim switch
                 }
