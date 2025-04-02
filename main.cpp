@@ -20,7 +20,7 @@ int menu(){
     int op=0, auxMenu=0;
     system("cls");
     cout << "--------------------------------\n";
-    cout << "1 - Iniciar\n2 - Opcoes\n3 - Creditos:\n";
+    cout << "1 - Iniciar\n2 - Ajuda\n3 - Creditos:\n";
     cout << "--------------------------------\n";
     cin >> op;
     switch(op)
@@ -31,8 +31,8 @@ int menu(){
         case 2:
             do{
                 system("cls");
-                cout << "Opções\n";
-                cout << "1 - Som\n2 - Musica\n3 - Teclado\n4 - Voltar\n";
+                cout << "Ajuda\n";
+                cout << "1 - Funcionamento\n2 - Itens\n3 - movimentacao\n4 - Voltar\n";
                 cout << "Escolha uma opcao: ";
                 cin >> auxMenu;
                 if(auxMenu == 4) {
@@ -106,6 +106,18 @@ int main()
     ///Limpa a tela do console
     system("cls");
 
+    ///Criação do personagem - Inicio
+    player p1;
+
+    p1.x = x; //posicao inicial do personagem
+    p1.y = y; //posicao inicial do personagem
+    p1.vida = 100;
+    p1.forca = 20;
+    p1.level = 15;
+    p1.exp = 0;
+    ///Criação do personagem - Fim
+
+
     while(true){
         ///Posiciona a escrita no iicio do console
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
@@ -113,15 +125,15 @@ int main()
         ///Imprime o jogo: mapa e personagem.
         for(int i=0;i<a;i++){
             for(int j=0;j<b;j++){
-                if(i==x && j==y){
+                if(i==p1.x && j==p1.y){
                     //if da parede
                     if(m[i][j]==1){
-                        x=aux1;
-                        y=aux2;
+                        p1.x=aux1;
+                        p1.y=aux2;
                     }
                     cout<<char(36); //personagem
                     //auxiliares salvando o lugar do personagem
-                    aux1=x; aux2=y;
+                    aux1=p1.x; aux2=p1.y;
                 }
 
                 else{
@@ -146,16 +158,16 @@ int main()
             switch(tecla)
             {
                 case 72: case 'w': ///cima
-                    x--;
+                    p1.x--;
                 break;
                 case 80: case 's': ///baixo
-                    x++;
+                    p1.x++;
                 break;
                 case 75:case 'a': ///esquerda
-                    y--;
+                    p1.y--;
                 break;
                 case 77: case 'd': ///direita
-                    y++;
+                    p1.y++;
                 break;
             }
          }
