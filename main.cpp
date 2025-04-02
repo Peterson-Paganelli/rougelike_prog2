@@ -37,8 +37,7 @@ int menu(){
     cout << "1 - Iniciar\n2 - Ajuda\n3 - Creditos:\n";
     cout << "--------------------------------\n";
     cin >> op;
-    switch(op)
-    {
+    switch(op){
         case 1:
             cout << "Jogo iniciado\n";
             return op;
@@ -49,8 +48,10 @@ int menu(){
                 cout << "1 - Funcionamento\n2 - Itens\n3 - movimentacao\n4 - Voltar\n";
                 cout << "Escolha uma opcao: ";
                 cin >> auxMenu;
-                if(auxMenu == 4) {
-                    break;
+                switch(auxMenu){
+                    case 1: break;
+                    case 2: break;
+                    case 3: break;
                 }
             } while(auxMenu != 4);
             break;
