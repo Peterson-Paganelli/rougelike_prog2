@@ -50,7 +50,16 @@ int menu(){
                 cin >> auxMenu;
                 switch(auxMenu){
                     case 1: break;
-                    case 2: break;
+                    case 2:
+                        system("cls");
+                        cout << "Espada: Aumenta a forca do personagem em 5 pontos\n";
+                        cout << "Pocao de cura: Recupera a vida em 15\n";
+                        cout << "Chave: Abre portas trancadas\n";
+                        cout << "Totem: Aumenta a pontuacao em 5 pontos\n";
+                        cout << "\nPressione qualquer botao para continuar...:\n";
+                        cin.ignore();
+                        cin.get();
+                        break;
                     case 3: break;
                 }
             } while(auxMenu != 4);
