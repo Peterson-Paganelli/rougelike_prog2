@@ -184,7 +184,7 @@ void displayMap(const vector<vector<int>>& map, const vector<vector<int>>& disco
         }
         cout << "\n";
     }
-    cout << "Vida: " << player.health << " | Forca: " << player.strength << " | Nivel: " << player.level 
+    cout << "Vida: " << player.health << " | Forca: " << player.strength << " | Nivel: " << player.level
          << " | Exp: " << player.exp << " | Pontuacao: " << player.score << "\n";
     cout << "Inventario: ";
     for (const auto& item : player.inventory) cout << item << " ";
@@ -207,12 +207,13 @@ void combat(Player& player, Enemy& enemy) {
         cout << "Voce foi derrotado...\n";
     }
     Sleep(1000);
+    system("cls");
 }
 
 // Funcao para mover o jogador
 void movePlayer(Player& player, char direction, vector<vector<int>>& map, vector<Enemy>& enemies, vector<Item>& items) {
     int newX = player.x, newY = player.y;
-    
+
     if (direction == 'w') newX--; /// Cima
     else if (direction == 's') newX++; ///Baixo
     else if (direction == 'a') newY--; ///Esquerda
@@ -228,7 +229,8 @@ void movePlayer(Player& player, char direction, vector<vector<int>>& map, vector
         for (auto it = items.begin(); it != items.end(); ) {
             if (newX == it->x && newY == it->y) {
                 cout << "Item coletado: " << it->type << "\n";
-                Sleep(100);
+                Sleep(700);
+                system("cls");
                 player.inventory.push_back(it->type);
                 player.score += 5;
                 it = items.erase(it);
@@ -271,6 +273,7 @@ void useItem(Player& player) {
         cout << "Pressione Enter para continuar...\n";
         cin.ignore();
         cin.get();
+        system("cls");
         return;
     }
     system("cls");
@@ -302,6 +305,7 @@ void useItem(Player& player) {
         cin.ignore();
         cin.get();
     }
+    system("cls");
 }
 
 // Funcao para mover inimigos
@@ -422,7 +426,8 @@ int main() {
             } else {
                 cout << "Voce deve derrotar todos os inimigos para prosseguir.\n";
                 player.x--;
-                //Sleep(1000);
+                Sleep(800);
+                system("cls");
             }
         } else if (currentLevel == 3 && enemies.empty()) {
             system("cls");
