@@ -108,8 +108,9 @@ int menu() {
         case 3:
             system("cls");
             cout << "Creditos\n";
-            cout << "Um jogo criado por: [Seu Nome]\n";
-            cout << "Programacao: [Seu Nome]\n";
+            cout << "Um jogo criado por: Davi, Pedro, Peterson\n";
+            cout << "Programacao: Davi, Pedro, Peterson\n";
+            cout <<"Ambientação: Davi, Pedro, Peterson\n";
             cout << "Agradecimentos: Prof. Alex Luciano Roesler Rese\n";
             cout << "\nPressione Enter para continuar...\n";
             cin.ignore();
